@@ -15,6 +15,9 @@ before_install:
   - sleep 2
   - echo $BASE64_GOOGLE_KEY | base64 --decode > /tmp/firestore-node-viewmodel-key.json
 
+before_script:
+  - npm rebuild
+
 services:
   - mongodb
   - couchdb
@@ -22,18 +25,17 @@ services:
 
 language: node_js
 node_js:
-  - "4"
   - "6"
   - "8"
   - "10"
 
 branches:
   only:
-    - master
+    - firestore-travis
 
 notifications:
   email:
-    - adriano@raiano.ch
+    - hamish@happtic.com
 
 env:
   global:
